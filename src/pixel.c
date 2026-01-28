@@ -1,5 +1,20 @@
+/**
+ * @file pixel.c
+ * @brief Conversion des formes géométriques en pixels.
+ *
+ * Ce module contient les fonctions permettant de transformer
+ * des shapes (point, ligne, cercle, polygone, courbe, etc.)
+ * en une liste de pixels exploitables par le moteur de rendu.
+ */
 #include "pixel.h"
-
+/**
+ * @brief Crée un pixel.
+ *
+ * @param px Coordonnée x.
+ * @param py Coordonnée y.
+ * @param color Couleur du pixel.
+ * @return Pointeur vers le Pixel créé.
+ */
 Pixel *create_pixel(int px, int py, int color) {
     Pixel *pixel = (Pixel *) malloc(sizeof(Pixel));
     pixel->px = px;
@@ -8,11 +23,24 @@ Pixel *create_pixel(int px, int py, int color) {
     return pixel;
 }
 
+/**
+ * @brief Supprime un pixel.
+ *
+ * @param pixel Pixel à libérer.
+ */
 void delete_pixel(Pixel * pixel) {
     free(pixel);
 }
 
-
+/**
+ * @brief Génère les pixels correspondant à une shape.
+ *
+ * En fonction du type de shape, la fonction appelle
+ * l’algorithme de conversion approprié.
+ *
+ * @param shape Shape à convertir.
+ * @return Liste de pixels générés.
+ */
 list *create_shape_to_pixel(Shape * shape) {
     if (shape->ptrShape == NULL) {
         return NULL;
@@ -47,17 +75,41 @@ list *create_shape_to_pixel(Shape * shape) {
     return lst;
 }
 
+
+/**
+ * @brief Supprime les pixels d'une shape.
+ *
+ * @note Fonction non implémentée (TODO).
+ */
 void remove_pixel_shape(list * pixel_lst) {
 
 }
 
 
+/**
+ * @brief Conversion d'un point en pixel.
+ *
+ * @param shape Shape de type POINT.
+ * @param lst Liste de pixels.
+ */
 void pixel_point(Shape * shape, list * lst) {
     Point *pt = (Point *) shape->ptrShape;
     Pixel *px = create_pixel(pt->pos_x, pt->pos_y, shape->color);
     lst_insert_tail(lst, lst_create_lnode(px));
 }
 
+/**
+ * @brief Trace un segment entre deux points.
+ *
+ * Utilise l'algorithme de Bresenham.
+ *
+ * @param x Coordonnée x de départ.
+ * @param y Coordonnée y de départ.
+ * @param dx Différence x.
+ * @param dy Différence y.
+ * @param color Couleur du segment.
+ * @param lst Liste de pixels.
+ */
 void draw_segment(int x, int y, int dx, int dy, Color color, list * lst) {
     int i, cumul;
     int xinc, yinc;
@@ -98,6 +150,12 @@ void draw_segment(int x, int y, int dx, int dy, Color color, list * lst) {
     }
 }
 
+/**
+ * @brief Conversion d'une ligne en pixels.
+ *
+ * @param shape Shape de type LINE.
+ * @param lst Liste de pixels.
+ */
 void pixel_line(Shape * shape, list * lst) {
     Line *p_line = (Line *) shape->ptrShape;
     int dx, dy, x, y;
@@ -109,6 +167,14 @@ void pixel_line(Shape * shape, list * lst) {
     draw_segment(x, y, dx, dy, shape->color, lst);
 }
 
+/**
+ * @brief Conversion d'un cercle en pixels.
+ *
+ * Utilise un algorithme de tracé symétrique.
+ *
+ * @param shape Shape de type CERCLE.
+ * @param lst Liste de pixels.
+ */
 void pixel_cercle(Shape * shashapepe, list * lst) {
     Cercle *p_cercle = (Cercle *) shape->ptrShape;
     int x = 0;

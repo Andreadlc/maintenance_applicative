@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>maintenance_applicative: pixel_tracer Struct Reference</title>
+<title>MyProject_applicative: pixel_tracer Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">maintenance_applicative
+   <div id="projectname">MyProject_applicative
    </div>
   </td>
  </tr>
@@ -91,25 +91,28 @@ $(function(){initNavTree('structpixel__tracer.html','',''); });
   <div class="headertitle"><div class="title">pixel_tracer Struct Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Structure principale de l'application Pixel Tracer.  
+ <a href="#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="pixel__tracer_8h_source.html">pixel_tracer.h</a>&gt;</code></p>
 <div class="dynheader">
 Collaboration diagram for pixel_tracer:</div>
 <div class="dyncontent">
 <div class="center"><img src="structpixel__tracer__coll__graph.png" border="0" usemap="#apixel__tracer_coll__map" loading="lazy" alt="Collaboration graph"/></div>
 <map name="apixel__tracer_coll__map" id="apixel__tracer_coll__map">
-<area shape="rect" title=" " alt="" coords="84,341,172,368"/>
-<area shape="rect" href="structlist__.html" title=" " alt="" coords="67,144,112,171"/>
-<area shape="poly" title=" " alt="" coords="55,182,37,200,19,221,9,245,9,256,12,268,28,292,49,311,97,339,92,342,46,316,24,295,7,270,3,257,4,244,14,219,33,196,57,178"/>
-<area shape="rect" href="structarea.html" title=" " alt="" coords="78,243,124,269"/>
-<area shape="poly" title=" " alt="" coords="89,184,93,218,99,242,94,242,88,219,88,189"/>
-<area shape="rect" href="structlayer.html" title=" " alt="" coords="159,243,209,269"/>
-<area shape="poly" title=" " alt="" coords="125,171,156,193,173,217,183,243,178,242,168,220,153,197,126,176"/>
-<area shape="rect" href="structlnode__.html" title=" " alt="" coords="60,15,119,41"/>
-<area shape="poly" title=" " alt="" coords="90,55,92,144,87,143,88,60"/>
-<area shape="poly" title=" " alt="" coords="133,14,143,20,146,28,143,36,137,41,121,43,117,39,135,36,139,33,140,28,138,23,135,19"/>
-<area shape="poly" title=" " alt="" coords="81,280,75,300,77,316,87,329,102,341,96,341,83,333,72,318,70,299,78,284"/>
-<area shape="poly" title=" " alt="" coords="175,282,157,319,140,343,136,339,152,316,170,285"/>
-<area shape="rect" href="structshape.html" title=" " alt="" coords="269,243,325,269"/>
-<area shape="poly" title=" " alt="" coords="286,282,273,303,256,320,215,340,173,351,172,345,213,335,253,315,269,300,282,285"/>
+<area shape="rect" title="Structure principale de l&#39;application Pixel Tracer." alt="" coords="95,341,183,368"/>
+<area shape="rect" href="structarea.html" title="Représente une zone de dessin (Area)." alt="" coords="5,243,52,269"/>
+<area shape="poly" title=" " alt="" coords="36,282,45,301,56,315,74,329,97,341,92,342,72,334,52,319,40,303,35,287"/>
+<area shape="rect" href="structlayer.html" title="Représente un calque de dessin." alt="" coords="114,243,164,269"/>
+<area shape="poly" title=" " alt="" coords="141,283,142,342,137,340,137,287"/>
+<area shape="rect" href="structlist__.html" title=" " alt="" coords="116,144,162,171"/>
+<area shape="poly" title=" " alt="" coords="141,184,142,243,137,242,138,189"/>
+<area shape="rect" href="structlnode__.html" title=" " alt="" coords="110,15,169,41"/>
+<area shape="poly" title=" " alt="" coords="140,55,142,144,137,143,138,60"/>
+<area shape="poly" title=" " alt="" coords="183,14,193,20,195,28,193,36,187,41,170,43,167,39,185,36,189,33,190,28,188,23,185,19"/>
+<area shape="rect" href="structshape.html" title="Représente une forme générique." alt="" coords="224,243,281,269"/>
+<area shape="poly" title=" " alt="" coords="246,283,238,303,225,319,206,333,185,344,183,339,203,329,221,315,233,300,242,286"/>
 </map>
 <center><span class="legend">[<a target="top" href="graph_legend.html">legend</a>]</span></center></div>
 <table class="memberdecls">
@@ -124,8 +127,17 @@ Layer *&#160;</td><td class="memItemRight"><b>current_layer</b></td></tr>
 <tr class="memitem:a28dddbe3cde53c6f97501b32d5cd6b18" id="r_a28dddbe3cde53c6f97501b32d5cd6b18"><td class="memItemLeft"><a id="a28dddbe3cde53c6f97501b32d5cd6b18" name="a28dddbe3cde53c6f97501b32d5cd6b18"></a>
 Shape *&#160;</td><td class="memItemRight"><b>current_shape</b></td></tr>
 </table>
-<hr/>The documentation for this struct was generated from the following file:<ul>
-<li>C:/Users/zeust/Downloads/pixel_tracer/pixel_tracer/src/<a class="el" href="pixel__tracer_8h_source.html">pixel_tracer.h</a></li>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure principale de l'application Pixel Tracer. </p>
+<p>Elle contient :</p><ul>
+<li>la liste de toutes les areas</li>
+<li>l'area actuellement sélectionnée</li>
+<li>le layer actuellement sélectionné</li>
+<li>la shape actuellement sélectionnée</li>
+</ul>
+<p>Cette structure représente l'état global de l'application. </p>
+</div><hr/>The documentation for this struct was generated from the following file:<ul>
+<li>C:/Users/zeust/OneDrive/Bureau/projet_halim/pixel_tracer/src/<a class="el" href="pixel__tracer_8h_source.html">pixel_tracer.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

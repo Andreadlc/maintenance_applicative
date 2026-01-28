@@ -1,30 +1,63 @@
+/**
+ * @file shape.h
+ * @brief Définition des structures et fonctions pour les formes géométriques.
+ *
+ * Ce module contient :
+ *  - les structures de données (Point, Line, Rectangle, ...)
+ *  - les fonctions de création/suppression
+ *  - les fonctions de conversion en chaîne de caractères (sprint_*)
+ *  - les fonctions de création de Shape (formes génériques)
+ */
 #ifndef _SHAPE_H_
 #  define _SHAPE_H_
-
+/**
+ * @enum Shape_type
+ * @brief Types de formes possibles.
+ */
 typedef enum shape_type { POINT, LINE, SQUAR, RECTANGLE, CERCLE,
     POLYGON, CURVE
 } Shape_type;
+
+/**
+ * @enum Color
+ * @brief Couleurs disponibles pour une forme.
+ */
 typedef enum color { BLACK, WIGHT, RED, GREEN } Color;
 
+/**
+ * @struct point
+ * @brief Représente un point 2D.
+ */
 struct point {
     int pos_x;
     int pos_y;
 };
 typedef struct point Point;
 
+/**
+ * @struct line
+ * @brief Représente une ligne définie par deux points.
+ */
 struct line {
     Point *p1;
     Point *p2;
 };
 typedef struct line Line;
 
+/**
+ * @struct squar
+ * @brief Représente un carré.
+ */
 struct squar {
     Point *p1;
     int length;
 };
 typedef struct squar Squar;
 
-
+/**
+ * @struct rectangle
+ * @brief Représente un rectangle.
+ */
 struct rectangle {
     Point *p1;
     int width;
@@ -32,20 +65,30 @@ struct rectangle {
 };
 typedef struct rectangle Rectangle;
 
+/**
+ * @struct cercle
+ * @brief Représente un cercle.
+ */
 struct cercle {
     Point *center;
     int radus;
 };
 typedef struct cercle Cercle;
 
-
+/**
+ * @struct polygon
+ * @brief Représente un polygone.
+ */
 struct polygon {
     int n;
     Point **points;
 };
 typedef struct polygon Polygon;
 
-
+/**
+ * @struct curve
+ * @brief Représente une courbe de Bézier (4 points).
+ */
 struct curve {
     Point *p1;
     Point *p2;
@@ -56,6 +99,10 @@ typedef struct curve Curve;
 
 
 
+/**
+ * @struct shape
+ * @brief Représente une forme générique.
+ */
 struct shape {
     unsigned long long int id;
     Shape_type shape_type;
@@ -67,7 +114,7 @@ struct shape {
 };
 typedef struct shape Shape;
 
-
+/* ===================== Création / Suppression ===================== */
 Point *create_point(int px, int py);
 void delete_point(Point * point);
 Line *create_line(Point * p1, Point * p2);
@@ -84,7 +131,7 @@ Curve *create_curve(Point * p1, Point * p2, Point * p3, Point * p4);
 void delete_curve(Curve * curve);
 
 Shape *create_empty_shape(Shape_type shape_type);
-
+/* ===================== Conversion en texte ===================== */
 void sprint_point(Point * p, char *str);
 void sprint_line(Line * line, char *str);
 void sprint_squar(Squar * squar, char *str);
@@ -97,12 +144,21 @@ void sprint_curve(Curve * curve, char *str);
 /**
  * Exporte only thoses functions 
  **/
+/**
+ * @brief Fonctions exportées (utilisées par le reste du projet).
+ */
 Shape *create_point_shape(int px, int py);
 Shape *create_line_shape(int px1, int py1, int px2, int py2);
 Shape *create_square_shape(int px, int py, int length);
 Shape *create_rectangle_shape(int px, int py, int width, int height);
 Shape *create_cercle_shape(int px, int py, int radus);
 //Shape *create_polygon_shape(int n, ...);
+/**
+ * @brief Crée un polygone depuis un tableau d'entiers (x,y,x,y...).
+ *
+ * @param n taille du tableau (doit être paire)
+ * @param tab tableau des coordonnées
+ */
 Shape *create_polygon_shape(int n, int *tab);
 
 Shape *create_curve_shape(int px1, int py1, int px2, int py2, int px3,

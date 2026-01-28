@@ -1,10 +1,29 @@
+/**
+ * @file main.c
+ * @brief Point d'entrée principal de l'application Pixel Tracer.
+ *
+ * Ce fichier contient la fonction main qui initialise l'application,
+ * lance la boucle de lecture des commandes utilisateur et gère
+ * l'affichage à l'écran.
+ */
 #include <stdio.h>
 #include <stdlib.h>
 #include "pixel_tracer.h"
 #include "command.h"
 
 
-
+/**
+ * @brief Fonction principale de l'application.
+ *
+ * Elle :
+ *  - initialise l'application Pixel Tracer
+ *  - affiche l'area courante
+ *  - lit et exécute les commandes utilisateur
+ *  - gère l'affichage selon les commandes exécutées
+ *  - libère les ressources à la fin du programme
+ *
+ * @return Code de retour du programme (0 par convention).
+ */
 
 
 int main() {

@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.16.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>maintenance_applicative: C:/Users/zeust/Downloads/pixel_tracer/pixel_tracer/src/layers.h Source File</title>
+<title>MyProject_applicative: C:/Users/zeust/OneDrive/Bureau/projet_halim/pixel_tracer/src/layers.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -26,7 +26,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">maintenance_applicative
+   <div id="projectname">MyProject_applicative
    </div>
   </td>
  </tr>
@@ -91,8 +91,8 @@ $(function(){initNavTree('layers_8h_source.html','',''); });
   <div class="headertitle"><div class="title">layers.h</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;list.h&quot;</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;shape.h&quot;</span></div>
+<a href="layers_8h.html">Go to the documentation of this file.</a><div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#include &quot;list.h&quot;</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#include &quot;<a class="code" href="shape_8h.html">shape.h</a>&quot;</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span><span class="preprocessor">#include &lt;stdlib.h&gt;</span></div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &lt;string.h&gt;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span> </div>
@@ -101,57 +101,60 @@ $(function(){initNavTree('layers_8h_source.html','',''); });
 <div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span> </div>
 <div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="preprocessor">#  define LAYER_VISIBLE 1</span></div>
 <div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span><span class="preprocessor">#  define LAYER_UNVISIBLE 0</span></div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span> </div>
-<div class="foldopen" id="foldopen00013" data-start="{" data-end="};">
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno"><a class="line" href="structlayer.html">   13</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structlayer.html">layer</a> {</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id;</div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">char</span> name[255];</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> visible;</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    list shapes;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>};</div>
+<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span></div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span></div>
+<div class="foldopen" id="foldopen00020" data-start="{" data-end="};">
+<div class="line"><a id="l00020" name="l00020"></a><span class="lineno"><a class="line" href="structlayer.html">   20</a></span><span class="keyword">struct </span><a class="code hl_struct" href="structlayer.html">layer</a> {</div>
+<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">int</span> id;</div>
+<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">char</span> name[255];</div>
+<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    <span class="keywordtype">unsigned</span> <span class="keywordtype">char</span> visible;</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    list shapes;</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>};</div>
 </div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span> </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structlayer.html">layer</a> Layer;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span> </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span> </div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span><span class="keyword">typedef</span> list LayersList;</div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span> </div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>Layer *create_layer(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">char</span> *name);</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span> </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keywordtype">void</span> delete_layer(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span> </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>LayersList *create_layers_list();</div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span> </div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span><span class="keywordtype">void</span> delete_layers_list(LayersList * layer_list);</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keywordtype">void</span> add_layer_to_list(LayersList * layer_list, Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span> </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span><span class="keywordtype">void</span> remove_layer_from_list(LayersList * layer_list, Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="keywordtype">void</span> set_layer_visible(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
-<div class="line"><a id="l00039" name="l00039"></a><span class="lineno">   39</span> </div>
-<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keywordtype">void</span> set_layer_unvisible(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
-<div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
-<div class="line"><a id="l00042" name="l00042"></a><span class="lineno">   42</span><span class="keywordtype">void</span> add_shape_to_layer(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>, Shape * <a class="code hl_struct" href="structshape.html">shape</a>);</div>
-<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span> </div>
-<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="keywordtype">void</span> remove_shape_to_from(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>, Shape * <a class="code hl_struct" href="structshape.html">shape</a>);</div>
-<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
-<div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span> </div>
-<div class="line"><a id="l00047" name="l00047"></a><span class="lineno">   47</span> </div>
-<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span> </div>
-<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span> </div>
-<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span><span class="preprocessor">#endif</span></div>
-<div class="ttc" id="astructlayer_html"><div class="ttname"><a href="structlayer.html">layer</a></div><div class="ttdef"><b>Definition</b> layers.h:13</div></div>
-<div class="ttc" id="astructshape_html"><div class="ttname"><a href="structshape.html">shape</a></div><div class="ttdef"><b>Definition</b> shape.h:59</div></div>
+<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span> </div>
+<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span><span class="keyword">typedef</span> <span class="keyword">struct </span><a class="code hl_struct" href="structlayer.html">layer</a> Layer;</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span></div>
+<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>Layer *<a class="code hl_function" href="layers_8h.html#a853dcca01b74d5b771a3c92c67f16a04">create_layer</a>(<span class="keywordtype">int</span> <span class="keywordtype">id</span>, <span class="keywordtype">char</span> *name);</div>
+<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span></div>
+<div class="line"><a id="l00043" name="l00043"></a><span class="lineno">   43</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#ab3ed3647c3307a0911045c2afc1c36ab">delete_layer</a>(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span></div>
+<div class="line"><a id="l00048" name="l00048"></a><span class="lineno">   48</span>LayersList *<a class="code hl_function" href="layers_8h.html#a81a30ec832bc7c40ae8f8c7aa452e145">create_layers_list</a>();</div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno">   49</span></div>
+<div class="line"><a id="l00053" name="l00053"></a><span class="lineno">   53</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#acc379be8abba3e431a40369dbdeed98d">delete_layers_list</a>(LayersList * layer_list);</div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno">   54</span></div>
+<div class="line"><a id="l00058" name="l00058"></a><span class="lineno">   58</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#ab59217268dcc283a4942f7e3ed56e3c8">add_layer_to_list</a>(LayersList * layer_list, Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno">   59</span></div>
+<div class="line"><a id="l00063" name="l00063"></a><span class="lineno">   63</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#a68278e8226ecbaf6bbe27addfb9152b6">remove_layer_from_list</a>(LayersList * layer_list, Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
+<div class="line"><a id="l00064" name="l00064"></a><span class="lineno">   64</span></div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#a6a138d9be5f5e57bb32477ae04bf5696">set_layer_visible</a>(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span></div>
+<div class="line"><a id="l00073" name="l00073"></a><span class="lineno">   73</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#ae65dbbb2e84affd3a5f58a1bf7974fa5">set_layer_unvisible</a>(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>);</div>
+<div class="line"><a id="l00074" name="l00074"></a><span class="lineno">   74</span></div>
+<div class="line"><a id="l00078" name="l00078"></a><span class="lineno">   78</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#a047dc1f75af9fbeee695b1dca8878c5e">add_shape_to_layer</a>(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>, Shape * <a class="code hl_struct" href="structshape.html">shape</a>);</div>
+<div class="line"><a id="l00079" name="l00079"></a><span class="lineno">   79</span></div>
+<div class="line"><a id="l00083" name="l00083"></a><span class="lineno">   83</span><span class="keywordtype">void</span> <a class="code hl_function" href="layers_8h.html#aca54ff31c800dfa70eb0ff3019b9f05c">remove_shape_to_from</a>(Layer * <a class="code hl_struct" href="structlayer.html">layer</a>, Shape * <a class="code hl_struct" href="structshape.html">shape</a>);</div>
+<div class="line"><a id="l00084" name="l00084"></a><span class="lineno">   84</span> </div>
+<div class="line"><a id="l00085" name="l00085"></a><span class="lineno">   85</span><span class="preprocessor">#endif</span></div>
+<div class="ttc" id="alayers_8h_html_a047dc1f75af9fbeee695b1dca8878c5e"><div class="ttname"><a href="layers_8h.html#a047dc1f75af9fbeee695b1dca8878c5e">add_shape_to_layer</a></div><div class="ttdeci">void add_shape_to_layer(Layer *layer, Shape *shape)</div><div class="ttdoc">Ajoute une shape à un calque.</div><div class="ttdef"><b>Definition</b> layers.c:104</div></div>
+<div class="ttc" id="alayers_8h_html_a68278e8226ecbaf6bbe27addfb9152b6"><div class="ttname"><a href="layers_8h.html#a68278e8226ecbaf6bbe27addfb9152b6">remove_layer_from_list</a></div><div class="ttdeci">void remove_layer_from_list(LayersList *layer_list, Layer *layer)</div><div class="ttdoc">Retire un calque d&#39;une liste.</div><div class="ttdef"><b>Definition</b> layers.c:76</div></div>
+<div class="ttc" id="alayers_8h_html_a6a138d9be5f5e57bb32477ae04bf5696"><div class="ttname"><a href="layers_8h.html#a6a138d9be5f5e57bb32477ae04bf5696">set_layer_visible</a></div><div class="ttdeci">void set_layer_visible(Layer *layer)</div><div class="ttdoc">Rends un calque visible.</div><div class="ttdef"><b>Definition</b> layers.c:85</div></div>
+<div class="ttc" id="alayers_8h_html_a81a30ec832bc7c40ae8f8c7aa452e145"><div class="ttname"><a href="layers_8h.html#a81a30ec832bc7c40ae8f8c7aa452e145">create_layers_list</a></div><div class="ttdeci">LayersList * create_layers_list()</div><div class="ttdoc">Crée une liste de calques.</div><div class="ttdef"><b>Definition</b> layers.c:41</div></div>
+<div class="ttc" id="alayers_8h_html_a853dcca01b74d5b771a3c92c67f16a04"><div class="ttname"><a href="layers_8h.html#a853dcca01b74d5b771a3c92c67f16a04">create_layer</a></div><div class="ttdeci">Layer * create_layer(int id, char *name)</div><div class="ttdoc">Crée un calque.</div><div class="ttdef"><b>Definition</b> layers.c:17</div></div>
+<div class="ttc" id="alayers_8h_html_ab3ed3647c3307a0911045c2afc1c36ab"><div class="ttname"><a href="layers_8h.html#ab3ed3647c3307a0911045c2afc1c36ab">delete_layer</a></div><div class="ttdeci">void delete_layer(Layer *layer)</div><div class="ttdoc">Supprime un calque (et ses shapes).</div><div class="ttdef"><b>Definition</b> layers.c:31</div></div>
+<div class="ttc" id="alayers_8h_html_ab59217268dcc283a4942f7e3ed56e3c8"><div class="ttname"><a href="layers_8h.html#ab59217268dcc283a4942f7e3ed56e3c8">add_layer_to_list</a></div><div class="ttdeci">void add_layer_to_list(LayersList *layer_list, Layer *layer)</div><div class="ttdoc">Ajoute un calque à une liste.</div><div class="ttdef"><b>Definition</b> layers.c:63</div></div>
+<div class="ttc" id="alayers_8h_html_aca54ff31c800dfa70eb0ff3019b9f05c"><div class="ttname"><a href="layers_8h.html#aca54ff31c800dfa70eb0ff3019b9f05c">remove_shape_to_from</a></div><div class="ttdeci">void remove_shape_to_from(Layer *layer, Shape *shape)</div><div class="ttdoc">Retire une shape d&#39;un calque.</div><div class="ttdef"><b>Definition</b> layers.c:116</div></div>
+<div class="ttc" id="alayers_8h_html_acc379be8abba3e431a40369dbdeed98d"><div class="ttname"><a href="layers_8h.html#acc379be8abba3e431a40369dbdeed98d">delete_layers_list</a></div><div class="ttdeci">void delete_layers_list(LayersList *layer_list)</div><div class="ttdoc">Supprime une liste de calques.</div><div class="ttdef"><b>Definition</b> layers.c:52</div></div>
+<div class="ttc" id="alayers_8h_html_ae65dbbb2e84affd3a5f58a1bf7974fa5"><div class="ttname"><a href="layers_8h.html#ae65dbbb2e84affd3a5f58a1bf7974fa5">set_layer_unvisible</a></div><div class="ttdeci">void set_layer_unvisible(Layer *layer)</div><div class="ttdoc">Rends un calque invisible.</div><div class="ttdef"><b>Definition</b> layers.c:94</div></div>
+<div class="ttc" id="ashape_8h_html"><div class="ttname"><a href="shape_8h.html">shape.h</a></div><div class="ttdoc">Définition des structures et fonctions pour les formes géométriques.</div></div>
+<div class="ttc" id="astructlayer_html"><div class="ttname"><a href="structlayer.html">layer</a></div><div class="ttdoc">Représente un calque de dessin.</div><div class="ttdef"><b>Definition</b> layers.h:20</div></div>
+<div class="ttc" id="astructshape_html"><div class="ttname"><a href="structshape.html">shape</a></div><div class="ttdoc">Représente une forme générique.</div><div class="ttdef"><b>Definition</b> shape.h:106</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="navelem"><b>src</b></li><li class="navelem"><b>layers.h</b></li>
+    <li class="navelem"><b>src</b></li><li class="navelem"><a href="layers_8h.html">layers.h</a></li>
     <li class="footer">Generated by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.16.1 </li>
   </ul>
 </div>

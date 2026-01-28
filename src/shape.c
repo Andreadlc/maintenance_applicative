@@ -1,3 +1,14 @@
+/**
+ * @file shape.c
+ * @brief Implémentation des formes géométriques de Pixel Tracer.
+ *
+ * Ce module fournit :
+ *  - les structures internes des formes (Point, Line, Rectangle, etc.)
+ *  - les fonctions de création et destruction
+ *  - les fonctions d'affichage texte (sprint_*)
+ *
+ * Ces structures correspondent directement aux futures classes Java.
+ */
 #include <string.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -5,7 +16,15 @@
 #include "id.h"
 #include "shape.h"
 
+/* ===================== POINT ===================== */
 
+/**
+ * @brief Crée un point 2D.
+ *
+ * @param px coordonnée X
+ * @param py coordonnée Y
+ * @return pointeur vers un Point
+ */
 Point *create_point(int px, int py) {
     Point *p = (Point *) malloc(sizeof(Point));
     p->pos_x = px;
@@ -13,35 +32,73 @@ Point *create_point(int px, int py) {
     return p;
 }
 
+/**
+ * @brief Supprime un point.
+ *
+ * @param point point à libérer
+ */
 void delete_point(Point * point) {
     free(point);
 }
+/* ===================== LINE ===================== */
 
+/**
+ * @brief Crée une ligne entre deux points.
+ *
+ * @param p1 premier point
+ * @param p2 second point
+ * @return pointeur vers une Line
+ */
 Line *create_line(Point * p1, Point * p2) {
     Line *l = (Line *) malloc(sizeof(Line));
     l->p1 = p1;
     l->p2 = p2;
     return l;
 }
-
+/**
+ * @brief Supprime une ligne et ses points.
+ *
+ * @param line ligne à supprimer
+ */
 void delete_line(Line * line) {
     delete_point(line->p1);
     delete_point(line->p2);
     free(line);
 }
+/* ===================== SQUARE ===================== */
 
+/**
+ * @brief Crée un carré.
+ *
+ * @param point point d'origine
+ * @param length longueur du côté
+ * @return pointeur vers un Squar
+ */
 Squar *create_squar(Point * point, int length) {
     Squar *squar = (Squar *) malloc(sizeof(Squar));
     squar->p1 = point;
     squar->length = length;
     return squar;
 }
-
+/**
+ * @brief Supprime un carré.
+ *
+ * @param squar carré à supprimer
+ */
 void delete_squar(Squar * squar) {
     delete_point(squar->p1);
     free(squar);
 }
+/* ===================== RECTANGLE ===================== */
 
+/**
+ * @brief Crée un rectangle.
+ *
+ * @param point point d'origine
+ * @param width largeur
+ * @param height hauteur
+ * @return pointeur vers un Rectangle
+ */
 Rectangle *create_rectangle(Point * point, int width, int height) {
     Rectangle *rec = (Rectangle *) malloc(sizeof(Rectangle));
     rec->p1 = point;
@@ -50,23 +107,49 @@ Rectangle *create_rectangle(Point * point, int width, int height) {
     return rec;
 }
 
+/**
+ * @brief Supprime un rectangle.
+ *
+ * @param rectangle rectangle à supprimer
+ */
 void delete_rectangle(Rectangle * rectangle) {
     delete_point(rectangle->p1);
     free(rectangle);
 }
 
+/* ===================== CERCLE ===================== */
+
+/**
+ * @brief Crée un cercle.
+ *
+ * @param center centre du cercle
+ * @param radus rayon
+ * @return pointeur vers un Cercle
+ */
 Cercle *create_cercle(Point * center, int radus) {
     Cercle *cercle = (Cercle *) malloc(sizeof(Cercle));
     cercle->center = center;
     cercle->radus = radus;
     return cercle;
 }
-
+/**
+ * @brief Supprime un cercle.
+ *
+ * @param cercle cercle à supprimer
+ */
 void delete_cercle(Cercle * cercle) {
     delete_point(cercle->center);
     free(cercle);
 }
 
+/* ===================== POLYGON ===================== */
+
+/**
+ * @brief Crée un polygone vide.
+ *
+ * @param n nombre de sommets
+ * @return pointeur vers un Polygon
+ */
 Polygon *create_polygon(int n) {
     Polygon *poly = (Polygon *) malloc(sizeof(Polygon));
     poly->points = (Point **) malloc(sizeof(Point *) * n);
@@ -77,6 +160,11 @@ Polygon *create_polygon(int n) {
     return poly;
 }
 
+/**
+ * @brief Supprime un polygone.
+ *
+ * @param polygon polygone à supprimer
+ */
 void delete_polygon(Polygon * polygon) {
     for (int i = 0; i < polygon->n; i++) {
         delete_point(polygon->points[i]);
@@ -85,7 +173,17 @@ void delete_polygon(Polygon * polygon) {
     free(polygon);
 }
 
+/* ===================== CURVE ===================== */
 
+/**
+ * @brief Crée une courbe de Bézier.
+ *
+ * @param p1 point 1
+ * @param p2 point 2
+ * @param p3 point 3
+ * @param p4 point 4
+ * @return pointeur vers une Curve
+ */
 Curve *create_curve(Point * p1, Point * p2, Point * p3, Point * p4) {
     Curve *cur = (Curve *) malloc(sizeof(Curve));
     cur->p1 = p1;
@@ -95,6 +193,11 @@ Curve *create_curve(Point * p1, Point * p2, Point * p3, Point * p4) {
     return cur;
 }
 
+/**
+ * @brief Supprime une courbe.
+ *
+ * @param curve courbe à supprimer
+ */
 void delete_curve(Curve * curve) {
     delete_point(curve->p1);
     delete_point(curve->p2);
@@ -103,7 +206,14 @@ void delete_curve(Curve * curve) {
     free(curve);
 }
 
+/* ===================== SHAPE GENERIQUE ===================== */
 
+/**
+ * @brief Crée une shape vide.
+ *
+ * @param shape_type type de la forme
+ * @return pointeur vers une Shape
+ */
 Shape *create_empty_shape(Shape_type shape_type) {
     Shape *shp = (Shape *) malloc(sizeof(Shape));
     shp->id = get_next_id();
@@ -115,9 +225,12 @@ Shape *create_empty_shape(Shape_type shape_type) {
     return shp;
 }
 
+
 void sprint_point(Point * p, char *str) {
     sprintf(str, "%d %d", p->pos_x, p->pos_y);
 }
+
+
 
 void sprint_line(Line * line, char *str) {
     char str1[50];
@@ -171,6 +284,11 @@ void sprint_curve(Curve * curve, char *str) {
 /**
  * Export Only 
  */
+/* ===================== EXPORT API ===================== */
+
+/**
+ * @brief Crée une shape de type point.
+ */
 Shape *create_point_shape(int px, int py) {
     Shape *shp = create_empty_shape(POINT);
     Point *p = create_point(px, py);
@@ -178,6 +296,9 @@ Shape *create_point_shape(int px, int py) {
     return shp;
 }
 
+/**
+ * @brief Crée une shape de type ligne.
+ */
 Shape *create_line_shape(int px1, int py1, int px2, int py2) {
     Shape *shp = create_empty_shape(LINE);
     Point *p1 = create_point(px1, py1);
@@ -255,7 +376,11 @@ Shape *create_curve_shape(int px1, int py1, int px2, int py2, int px3,
     return shp;
 }
 
-
+/**
+ * @brief Supprime une shape et ses données internes.
+ *
+ * @param shape shape à supprimer
+ */
 void delete_shape(Shape * shape) {
     if (shape->ptrShape == NULL) {
         free(shape);

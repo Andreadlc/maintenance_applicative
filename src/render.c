@@ -1,6 +1,13 @@
 #include "render.h"
 #include <string.h>
 
+/**
+ * @brief Réinitialise le contenu d'une zone de dessin.
+ *
+ * Tous les pixels de l'area sont mis à l'état vide (EMPTY_CELL).
+ *
+ * @param area Zone de dessin à nettoyer
+ */
 void clear_area(Area * area) {
     for (unsigned int i = 0; i < area->height; i++) {
         for (unsigned int j = 0; j < area->width; j++) {
@@ -9,6 +16,14 @@ void clear_area(Area * area) {
     }
 }
 
+/**
+ * @brief Affiche une zone de dessin à l'écran.
+ *
+ * Chaque cellule est rendue sous forme de caractère ASCII,
+ * selon qu'elle est vide ou pleine.
+ *
+ * @param area Zone de dessin à afficher
+ */
 void draw_area(Area * area) {
     for (unsigned int i = 0; i < area->height; i++) {
         for (unsigned int j = 0; j < area->width; j++) {
@@ -25,7 +40,11 @@ void draw_area(Area * area) {
     }
 }
 
-
+/**
+ * @brief Efface l'écran du terminal.
+ *
+ * La commande utilisée dépend du système d'exploitation.
+ */
 void clear_screen() {
 
 #ifdef __linux__
@@ -38,7 +57,15 @@ void clear_screen() {
 
 }
 
-
+/**
+ * @brief Dessine toutes les couches visibles d'une area.
+ *
+ * - Réinitialise l'area
+ * - Parcourt les layers
+ * - Dessine uniquement celles visibles
+ *
+ * @param area Zone de dessin
+ */
 void draw_all_layers(Area * area) {
     clear_area(area);
     list *layer_list = area->lst_layers;
@@ -54,7 +81,15 @@ void draw_all_layers(Area * area) {
 }
 
 
-
+/**
+ * @brief Dessine toutes les formes d'un layer dans l'area.
+ *
+ * Chaque forme est convertie en pixels, puis chaque pixel est
+ * projeté dans la matrice de l'area.
+ *
+ * @param area Zone de dessin
+ * @param layer Layer à dessiner
+ */
 void draw_layer_shapes(Area * area, Layer * layer) {
     list shape_list = layer->shapes;
 

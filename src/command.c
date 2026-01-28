@@ -1,5 +1,8 @@
 #include "command.h"
 
+/**
+ * @brief Table des messages d'erreur utilisés dans read_exec_command()
+ */
 static unsigned int error_num = 0;
 static char *error_messages[] = {
     "",
@@ -15,6 +18,11 @@ static char *error_messages[] = {
         /* liste à compléter */
 };
 
+/**
+ * @brief Crée et initialise une commande vide.
+ *
+ * @return Pointeur vers une structure Command allouée dynamiquement.
+ */
 Command *create_commande() {
     Command *cmd = (Command *) malloc(sizeof(Command));
     cmd->name[0] = '\0';
@@ -24,6 +32,12 @@ Command *create_commande() {
     return cmd;
 }
 
+/**
+ * @brief Ajoute un paramètre entier à une commande.
+ *
+ * @param cmd Pointeur vers la commande.
+ * @param p Valeur entière à ajouter.
+ */
 void add_int_param(Command * cmd, int p) {
     if (cmd->int_size >= MAX_PARAM - 1)
         return;
@@ -31,6 +45,13 @@ void add_int_param(Command * cmd, int p) {
     cmd->int_size = cmd->int_size + 1;
 }
 
+
+/**
+ * @brief Ajoute un paramètre float à une commande.
+ *
+ * @param cmd Pointeur vers la commande.
+ * @param p Valeur float à ajouter.
+ */
 void add_float_param(Command * cmd, float p) {
     if (cmd->flt_size >= MAX_PARAM - 1)
         return;
@@ -38,6 +59,13 @@ void add_float_param(Command * cmd, float p) {
     cmd->flt_size = cmd->flt_size + 1;
 }
 
+
+/**
+ * @brief Ajoute un paramètre string à une commande.
+ *
+ * @param cmd Pointeur vers la commande.
+ * @param p Chaîne à ajouter (copie allouée).
+ */
 void add_str_param(Command * cmd, char *p) {
     if (cmd->str_size >= MAX_PARAM - 1)
         return;
@@ -47,6 +75,11 @@ void add_str_param(Command * cmd, char *p) {
     cmd->str_size = cmd->str_size + 1;
 }
 
+/**
+ * @brief Libère la mémoire allouée pour les paramètres string.
+ *
+ * @param cmd Pointeur vers la commande à libérer.
+ */
 void free_cmd(Command * cmd) {
     int i;
     for (i = 0; i < cmd->str_size; i++) {
@@ -54,6 +87,11 @@ void free_cmd(Command * cmd) {
     }
 }
 
+/**
+ * @brief Convertit une chaîne en minuscules.
+ *
+ * @param str Chaîne à modifier en place.
+ */
 void strlwr2(char *str) {
     int i;
     for (i = 0; i < strlen(str); i++) {
@@ -63,6 +101,12 @@ void strlwr2(char *str) {
     }
 }
 
+/**
+ * @brief Vérifie si une chaîne représente un entier.
+ *
+ * @param str Chaîne à tester.
+ * @return 1 si c'est un entier, sinon 0.
+ */
 int is_int(const char *str) {
     int i;
     for (i = 0; i < strlen(str); i++) {
@@ -73,6 +117,12 @@ int is_int(const char *str) {
     return 1;
 }
 
+/**
+ * @brief Vérifie si une chaîne est un mot (lettres minuscules uniquement).
+ *
+ * @param str Chaîne à tester.
+ * @return 1 si c'est un mot, sinon 0.
+ */
 int is_word(const char *str) {
     int i;
     for (i = 0; i < strlen(str); i++) {
@@ -83,11 +133,24 @@ int is_word(const char *str) {
     return 1;
 }
 
-
+/**
+ * @brief Vérifie si une chaîne représente un float.
+ *
+ * @param str Chaîne à tester.
+ * @return 1 si c'est un float, sinon 0.
+ */
 int is_float(const char *str) {
     return 0;                   /* TODO  */
 }
 
+/**
+ * @brief Nettoie une ligne de commande :
+ *        - met en minuscules
+ *        - supprime les commentaires (#)
+ *        - détecte les caractères invalides
+ *
+ * @param str Ligne à nettoyer.
+ */
 void clean_text(char *str) {
     int i = 0;
     strlwr2(str);
@@ -105,6 +168,17 @@ void clean_text(char *str) {
     }
 }
 
+/**
+ * @brief Lit une ligne depuis stdin et remplit une structure Command.
+ *
+ * La fonction :
+ *  - lit la ligne via readline()
+ *  - la nettoie
+ *  - sépare les tokens
+ *  - détecte si c'est un int, float ou mot
+ *
+ * @param cmd Commande à remplir.
+ */
 void read_from_stdin(Command * cmd) {
     char *str1, *token;
     int nb_str = 0, nb_int = 0, nb_float = 0;
@@ -197,7 +271,15 @@ void print_help() {
            "If you find any bug please send an email to : hdd@halim.info");
 }
 
-
+/**
+ * @brief Vérifie que le nombre de paramètres correspond aux attentes.
+ *
+ * @param cmd Commande à tester.
+ * @param nb_str Nombre de paramètres string attendus.
+ * @param nb_int Nombre de paramètres int attendus.
+ * @param nb_flt Nombre de paramètres float attendus.
+ * @return 1 si ok, sinon 0.
+ */
 int check_nb_params(Command * cmd, int nb_str, int nb_int, int nb_flt) {
     if (cmd->str_size != nb_str)
         return 0;
@@ -208,6 +290,17 @@ int check_nb_params(Command * cmd, int nb_str, int nb_int, int nb_flt) {
     return 1;
 }
 
+/**
+ * @brief Vérifie les paramètres d'une commande polygon.
+ *
+ * Conditions :
+ *  - 1 string (le mot "polygon")
+ *  - un nombre pair d'entiers > 0
+ *  - aucun float
+ *
+ * @param cmd Commande à tester.
+ * @return 1 si ok, sinon 0.
+ */
 int check_nb_params_polygon(Command * cmd) {
     if (cmd->str_size != 1)
         return 0;
@@ -219,7 +312,12 @@ int check_nb_params_polygon(Command * cmd) {
     return 1;
 }
 
-
+/**
+ * @brief Lit une commande, l'exécute et renvoie un code d'erreur.
+ *
+ * @param app Instance de Pixel_tracer_app.
+ * @return Code d'erreur.
+ */
 int read_exec_command(Pixel_tracer_app * app) {
     error_num = 1;
     Command *cmd = create_commande();
