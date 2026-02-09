@@ -1,9 +1,15 @@
-
 import java.util.*;
-
 
 /**
  * Class Curve
+ *
+ * Représente une courbe composée d'une suite de points.
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - points : liste de Point composant la courbe
+ *
+ * Implémente draw() pour dessiner la courbe (affiche nombre de points pour simulation).
  */
 public class Curve extends Shape {
 
@@ -16,7 +22,7 @@ public class Curve extends Shape {
   //
   // Constructors
   //
-  public Curve () { };
+  public Curve () {};
   
   //
   // Methods
@@ -43,6 +49,11 @@ public class Curve extends Shape {
     return points;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a curve with " + points.size() + " points");
+    return this;
+  }
+
   //
   // Other methods
   //
@@ -50,8 +61,8 @@ public class Curve extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Curve [points=" + points.size() + "]";
   }
 
 
