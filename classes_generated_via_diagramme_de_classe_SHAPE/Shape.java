@@ -15,6 +15,8 @@
  * Fournit une méthode abstraite draw() que toutes les sous-classes doivent implémenter.
  * Fournit également un toString() générique.
  */
+
+import java.util.*;
 abstract public class Shape {
 
   //
@@ -121,9 +123,9 @@ abstract public class Shape {
   /**
    * @return String
    */
-  public String toString()
-  {
-    String str = "Unknown shape"; 
+  public String toString(){
+
+    return "Unknown shape";
   }
 
 
