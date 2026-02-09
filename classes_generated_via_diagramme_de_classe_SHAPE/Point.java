@@ -1,9 +1,17 @@
 
 import java.util.*;
 
-
 /**
  * Class Point
+ *
+ * Représente un point 2D dans l'espace.
+ * Hérite de Shape pour unifier le polymorphisme avec les autres formes.
+ *
+ * Propriétés spécifiques :
+ *  - pos_x : coordonnée x
+ *  - pos_y : coordonnée y
+ *
+ * Implémente draw() pour dessiner le point (affiche coordonnées).
  */
 public class Point extends Shape {
 
@@ -60,6 +68,11 @@ public class Point extends Shape {
     return pos_y;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing point at (" + pos_x + ", " + pos_y + ")");
+    return this;
+  }
+
   //
   // Other methods
   //
@@ -67,8 +80,8 @@ public class Point extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Point [x=" + pos_x + ", y=" + pos_y + "]";
   }
 
 
