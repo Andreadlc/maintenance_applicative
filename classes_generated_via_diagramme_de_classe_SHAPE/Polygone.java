@@ -1,9 +1,16 @@
 
 import java.util.*;
 
-
 /**
  * Class Polygone
+ *
+ * Représente un polygone défini par une liste de points.
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - points : liste de Point formant le polygone
+ *
+ * Implémente draw() pour dessiner le polygone (affiche nombre de points).
  */
 public class Polygone extends Shape {
 
@@ -43,6 +50,11 @@ public class Polygone extends Shape {
     return points;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a polygon with " + points.size() + " points");
+    return this;
+  }
+
   //
   // Other methods
   //
@@ -50,8 +62,8 @@ public class Polygone extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Polygone [points=" + points.size() + "]";
   }
 
 
