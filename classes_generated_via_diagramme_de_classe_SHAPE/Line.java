@@ -1,9 +1,15 @@
-
 import java.util.*;
-
 
 /**
  * Class Line
+ *
+ * Représente une ligne composée d'une suite de points.
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - points : liste de Point composant la ligne
+ *
+ * Implémente draw() pour dessiner la ligne (affiche nombre de points pour simulation).
  */
 public class Line extends Shape {
 
@@ -43,6 +49,12 @@ public class Line extends Shape {
     return points;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a line with " + points.size() + " points");
+    return this;
+  }
+
+
   //
   // Other methods
   //
@@ -50,8 +62,8 @@ public class Line extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Line [points=" + points.size() + "]";
   }
 
 
