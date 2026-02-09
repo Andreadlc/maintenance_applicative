@@ -2,6 +2,18 @@
 
 /**
  * Class Shape
+ *
+ * <<abstract>>
+ * 
+ * Classe de base abstraite pour toutes les formes géométriques.
+ * Définit les propriétés communes :
+ *  - id : identifiant unique
+ *  - fill : si la forme est remplie
+ *  - thickness : épaisseur du contour
+ *  - rotation : angle de rotation
+ * 
+ * Fournit une méthode abstraite draw() que toutes les sous-classes doivent implémenter.
+ * Fournit également un toString() générique.
  */
 abstract public class Shape {
 
@@ -93,15 +105,25 @@ abstract public class Shape {
   }
 
   //
+  // Abstract methods
+  //
+
+  /**
+   * Draw the shape
+   * @return Shape
+   */
+  public abstract Shape draw();
+
+  //
   // Other methods
   //
 
   /**
-   * @return       String
+   * @return String
    */
   public String toString()
   {
-    String str = "Unknow shape"
+    String str = "Unknown shape"; 
   }
 
 
