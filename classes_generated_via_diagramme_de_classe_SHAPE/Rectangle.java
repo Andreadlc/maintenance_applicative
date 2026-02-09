@@ -1,9 +1,16 @@
 
 import java.util.*;
-
-
 /**
  * Class Rectangle
+ *
+ * Représente un rectangle avec longueur et largeur.
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - length : longueur du rectangle
+ *  - width : largeur du rectangle
+ *
+ * Implémente draw() pour dessiner le rectangle (affiche dimensions).
  */
 public class Rectangle extends Shape {
 
@@ -60,6 +67,11 @@ public class Rectangle extends Shape {
     return width;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a rectangle " + length + "x" + width);
+    return this;
+  }
+
   //
   // Other methods
   //
@@ -67,8 +79,8 @@ public class Rectangle extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Rectangle [length=" + length + ", width=" + width + "]";
   }
 
 
