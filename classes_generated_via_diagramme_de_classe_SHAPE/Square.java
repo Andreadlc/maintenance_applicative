@@ -4,6 +4,14 @@ import java.util.*;
 
 /**
  * Class Square
+ *
+ * Représente un carré (spécialisation d'un rectangle).
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - length : longueur du côté
+ *
+ * Implémente draw() pour dessiner le carré (affiche longueur du côté).
  */
 public class Square extends Shape {
 
@@ -43,6 +51,12 @@ public class Square extends Shape {
     return length;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a square with length " + length);
+    return this;
+  }
+
+
   //
   // Other methods
   //
@@ -50,8 +64,8 @@ public class Square extends Shape {
   /**
    * @return       String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Square [length=" + length + "]";
   }
 
 
