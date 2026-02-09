@@ -1,9 +1,15 @@
-
 import java.util.*;
-
 
 /**
  * Class Circle
+ *
+ * Représente un cercle géométrique.
+ * Hérite de Shape.
+ *
+ * Propriétés spécifiques :
+ *  - radius : rayon du cercle
+ *
+ * Implémente la méthode draw() pour dessiner le cercle (ici simulation par print).
  */
 public class Circle extends Shape {
 
@@ -43,15 +49,20 @@ public class Circle extends Shape {
     return radius;
   }
 
+  public Shape draw() {
+    System.out.println("Drawing a circle with radius " + radius);
+    return this;
+  }
+
   //
   // Other methods
   //
 
   /**
-   * @return       String
+   * @return String
    */
-  public String toString()
-  {
+  public String toString(){
+    return "Circle [radius=" + radius + "]";
   }
 
 
