@@ -17,41 +17,92 @@ public class Curve extends Shape {
   // Fields
   //
 
-  private ArrayList<Point> points;
+  private Point p1;
+  private Point p2;
+  private Point p3;
+  private Point p4;
   
   //
   // Constructors
   //
-  public Curve () {};
+  public Curve(Point p1, Point p2, Point p3, Point p4) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.CURVE);
+    this.p1 = p1;
+    this.p2 = p2;
+    this.p3 = p3;
+    this.p4 = p4;
+  }
   
   //
   // Methods
   //
-
 
   //
   // Accessor methods
   //
 
   /**
-   * Set the value of points
-   * @param newVar the new value of points
+   * Set the value of p1
+   * @param newVar the new value of p1
    */
-  public void setPoints (ArrayList<Point> newVar) {
-    points = newVar;
+  public void setP1 (Point newVar) {
+    p1 = newVar;
   }
 
   /**
-   * Get the value of points
-   * @return the value of points
+   * Get the value of p1
+   * @return the value of p1
    */
-  public ArrayList<Point> getPoints () {
-    return points;
+  public Point getP1 () {
+    return p1;
   }
 
-  public Shape draw() {
-    System.out.println("Drawing a curve with " + points.size() + " points");
-    return this;
+  /**
+   * Set the value of p2
+   * @param newVar the new value of p2
+   */
+  public void setP2 (Point newVar) {
+    p2 = newVar;
+  }
+
+  /**
+   * Get the value of p2
+   * @return the value of p2
+   */
+  public Point getP2 () {
+    return p2;
+  }
+
+  /**
+   * Set the value of p3
+   * @param newVar the new value of p3
+   */
+  public void setP3 (Point newVar) {
+    p3 = newVar;
+  }
+
+  /**
+   * Get the value of p3
+   * @return the value of p3
+   */
+  public Point getP3 () {
+    return p3;
+  }
+
+  /**
+   * Set the value of p4
+   * @param newVar the new value of p4
+   */
+  public void setP4 (Point newVar) {
+    p4 = newVar;
+  }
+
+  /**
+   * Get the value of p4
+   * @return the value of p4
+   */
+  public Point getP4 () {
+    return p4;
   }
 
   //
@@ -59,11 +110,11 @@ public class Curve extends Shape {
   //
 
   /**
-   * @return       String
+   * @return
    */
-  public String toString(){
-    return "Curve [points=" + points.size() + "]";
+  public String print()
+  {
+    return "points :\np1 : " + p1.print() + "\np2 : " + p2.print() + "\np3 : " + p3.print() + "\np4 : " + p4.print();
   }
-
 
 }
