@@ -17,12 +17,17 @@ public class Line extends Shape {
   // Fields
   //
 
-  private ArrayList<Point> points;
+  private Point p1;
+  private Point p2;
   
   //
   // Constructors
   //
-  public Line () { };
+  public Line(Point p1, Point p2) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.LINE);
+    this.p1 = p1;
+    this.p2 = p2;
+  }
   
   //
   // Methods
@@ -34,36 +39,47 @@ public class Line extends Shape {
   //
 
   /**
-   * Set the value of points
-   * @param newVar the new value of points
+   * Set the value of p1
+   * @param newVar the new value of p1
    */
-  public void setPoints (ArrayList<Point> newVar) {
-    points = newVar;
+  public void setP1 (Point newVar) {
+    p1 = newVar;
   }
 
   /**
-   * Get the value of points
-   * @return the value of points
+   * Get the value of p1
+   * @return the value of p1
    */
-  public ArrayList<Point> getPoints () {
-    return points;
+  public Point getP1 () {
+    return p1;
   }
 
-  public Shape draw() {
-    System.out.println("Drawing a line with " + points.size() + " points");
-    return this;
+  /**
+   * Set the value of p2
+   * @param newVar the new value of p2
+   */
+  public void setP2 (Point newVar) {
+    p2 = newVar;
   }
 
+  /**
+   * Get the value of p2
+   * @return the value of p2
+   */
+  public Point getP2 () {
+    return p2;
+  }
 
   //
   // Other methods
   //
 
   /**
-   * @return       String
+   * @return
    */
-  public String toString(){
-    return "Line [points=" + points.size() + "]";
+  public String print()
+  {
+    return "points :\np1 : " + p1.print() + "\np2 : " + p2.print();
   }
 
 
