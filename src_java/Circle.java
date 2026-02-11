@@ -14,56 +14,71 @@ import java.util.*;
 public class Circle extends Shape {
 
   //
-  // Fields
-  //
+    // Fields
+    //
 
-  private int radius;
-  
-  //
-  // Constructors
-  //
-  public Circle () { };
-  
-  //
-  // Methods
-  //
+    private Point center;
+    private int radius;
 
+    //
+    // Constructors
+    //
 
-  //
-  // Accessor methods
-  //
+    public Circle(Point center, int radius) {
+        super(IdCounter.getInstance().getNextId(), ShapeType.CIRCLE);
+        this.center = center;
+        this.radius = radius;
+    }
 
-  /**
-   * Set the value of radius
-   * @param newVar the new value of radius
-   */
-  public void setRadius (int newVar) {
-    radius = newVar;
-  }
+    public Circle(int px, int py, int radius) {
+        super(IdCounter.getInstance().getNextId(), ShapeType.CIRCLE);
+        this.center = new Point(px, py);
+        this.radius = radius;
+    }
 
-  /**
-   * Get the value of radius
-   * @return the value of radius
-   */
-  public int getRadius () {
-    return radius;
-  }
+    //
+    // Methods
+    //
 
-  public Shape draw() {
-    System.out.println("Drawing a circle with radius " + radius);
-    return this;
-  }
+    @Override
+    public String print() {
+        return "Circle(center: " + center.print() + ", radius: " + radius + ")";
+    }
 
-  //
-  // Other methods
-  //
+    //
+    // Accessor methods
+    //
 
-  /**
-   * @return String
-   */
-  public String toString(){
-    return "Circle [radius=" + radius + "]";
-  }
+    /**
+     * Set the value of center
+     * @param newVar the new value of center
+     */
+    public void setCenter(Point newVar) {
+        center = newVar;
+    }
 
+    /**
+     * Get the value of center
+     * @return the value of center
+     */
+    public Point getCenter() {
+        return center;
+    }
+
+    /**
+     * Set the value of radius
+     * @param newVar the new value of radius
+     */
+    public void setRadius(int newVar) {
+        radius = newVar;
+    }
+
+    /**
+     * Get the value of radius
+     * @return the value of radius
+     */
+    public int getRadius() {
+        return radius;
+    }
 
 }
