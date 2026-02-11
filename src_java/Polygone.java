@@ -14,25 +14,68 @@ import java.util.*;
  */
 public class Polygone extends Shape {
 
-  //
+ //
   // Fields
   //
 
+  private int n;
   private ArrayList<Point> points;
   
   //
   // Constructors
   //
-  public Polygone () { };
-  
+  public Polygon(ArrayList<Point> pointsList) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.POLYGON);
+    points = pointsList;
+  }
+
+  public Polygon(int n) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.POLYGON);
+    points = new ArrayList<Point>(n);
+  }
+
+  public Polygon(int n, int[] xandy) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.POLYGON);
+    points = new ArrayList<Point>(n);
+    try {
+      for (int i = 0; i < n * 2; i += 2) { // n*2 parce que x et y sont stockés dans le même tableau
+        System.out.println();
+        points.add(new Point(xandy[i], xandy[i + 1]));
+      }
+      this.n = n;
+    } catch (Exception e) {
+      System.out.println("Taille du tableau et cordonnées des points incohérentes : " + e);
+    }
+  }
+
+
+
   //
   // Methods
   //
-
+  public void addPoint(Point p) {
+    points.add(p);
+  }
 
   //
   // Accessor methods
   //
+
+  /**
+   * Set the value of n
+   * @param newVar the new value of n
+   */
+  public void setN (int newVar) {
+    n = newVar;
+  }
+
+  /**
+   * Get the value of n
+   * @return the value of n
+   */
+  public int getN () {
+    return n;
+  }
 
   /**
    * Set the value of points
@@ -50,21 +93,21 @@ public class Polygone extends Shape {
     return points;
   }
 
-  public Shape draw() {
-    System.out.println("Drawing a polygon with " + points.size() + " points");
-    return this;
-  }
-
   //
   // Other methods
   //
 
   /**
-   * @return       String
+   * @return
    */
-  public String toString(){
-    return "Polygone [points=" + points.size() + "]";
+  public String print()
+  {
+    StringBuilder sb = new StringBuilder();
+    sb.append("points :\n");
+    for (Point point : points) {
+      sb.append(point.print()).append("\n");
+    }
+    sb.append("n : ").append(n);
+    return sb.toString();
   }
-
-
 }
