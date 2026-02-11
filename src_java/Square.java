@@ -19,12 +19,18 @@ public class Square extends Shape {
   // Fields
   //
 
+  private Point p1;
   private int length;
   
   //
   // Constructors
   //
-  public Square () { };
+  public Square(Point p1, int length) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.SQUARE);
+    this.p1 = p1;
+    this.length = length;
+  }
+
   
   //
   // Methods
@@ -34,6 +40,22 @@ public class Square extends Shape {
   //
   // Accessor methods
   //
+
+  /**
+   * Set the value of p1
+   * @param newVar the new value of p1
+   */
+  public void setP1 (Point newVar) {
+    p1 = newVar;
+  }
+
+  /**
+   * Get the value of p1
+   * @return the value of p1
+   */
+  public Point getP1 () {
+    return p1;
+  }
 
   /**
    * Set the value of length
@@ -51,21 +73,16 @@ public class Square extends Shape {
     return length;
   }
 
-  public Shape draw() {
-    System.out.println("Drawing a square with length " + length);
-    return this;
-  }
-
-
   //
   // Other methods
   //
 
   /**
-   * @return       String
+   * @return
    */
-  public String toString(){
-    return "Square [length=" + length + "]";
+  public String print()
+  {
+    return "p1 : " + p1.print() + "\nlength : " + length;
   }
 
 
