@@ -19,102 +19,71 @@
 import java.util.*;
 abstract public class Shape {
 
-  //
-  // Fields
-  //
+   private int id;
+    private ShapeType type;
+    private String color;
+    private float thickness;
+    private float rotation;
+    private boolean fill;
 
-  private int id;
-  private boolean fill;
-  private float thickness;
-  private double rotation;
-  
-  //
-  // Constructors
-  //
-  public Shape () { };
-  
-  //
-  // Methods
-  //
+    public Shape(int id, ShapeType type) {
+        this.id = id;
+        this.type = type;
+        this.color = "BLACK";
+        this.thickness = 1.0f;
+        this.rotation = 0.0f;
+        this.fill = false;
+    }
 
+    public abstract String print();
 
-  //
-  // Accessor methods
-  //
+    /**
+     * Set the value of id
+     * @param newVar the new value of id
+     */
+    public void setId(int newVar) {
+        id = newVar;
+    }
 
-  /**
-   * Set the value of id
-   * @param newVar the new value of id
-   */
-  public void setId (int newVar) {
-    id = newVar;
-  }
+    /**
+     * Get the value of id
+     * @return the value of id
+     */
+    public int getId() {
+        return id;
+    }
 
-  /**
-   * Get the value of id
-   * @return the value of id
-   */
-  public int getId () {
-    return id;
-  }
+    /**
+     * Set the value of fill
+     * @param newVar the new value of fill
+     */
+    public void setFill(boolean newVar) {
+        fill = newVar;
+    }
 
-  /**
-   * Set the value of fill
-   * @param newVar the new value of fill
-   */
-  public void setFill (boolean newVar) {
-    fill = newVar;
-  }
+    /**
+     * Get the value of fill
+     * @return the value of fill
+     */
+    public boolean getFill() {
+        return fill;
+    }
 
-  /**
-   * Get the value of fill
-   * @return the value of fill
-   */
-  public boolean getFill () {
-    return fill;
-  }
+    /**
+     * Set the value of color
+     * @param newVar the new value of color
+     */
+    public void setColor(String newVar) {
+        color = newVar;
+    }
 
-  /**
-   * Set the value of thickness
-   * @param newVar the new value of thickness
-   */
-  public void setThickness (float newVar) {
-    thickness = newVar;
-  }
-
-  /**
-   * Get the value of thickness
-   * @return the value of thickness
-   */
-  public float getThickness () {
-    return thickness;
-  }
-
-  /**
-   * Set the value of rotation
-   * @param newVar the new value of rotation
-   */
-  public void setRotation (double newVar) {
-    rotation = newVar;
-  }
-
-  /**
-   * Get the value of rotation
-   * @return the value of rotation
-   */
-  public double getRotation () {
-    return rotation;
-  }
-
-  //
-  // Abstract methods
-  //
-
-  /**
-   * Draw the shape
-   * @return Shape
-   */
-  public abstract Shape draw();
+    /**
+     * Get the value of color
+     * @return the value of color
+     */
+    public String getColor() {
+        return color;
+    }
 
   //
   // Other methods
