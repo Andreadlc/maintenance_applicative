@@ -1,4 +1,9 @@
+package pixel_tracer.src_java;
 
+import pixel_tracer.src_java.IdCounter;
+import pixel_tracer.src_java.ShapeType;
+
+import java.awt.*;
 import java.util.*;
 /**
  * Class Rectangle
