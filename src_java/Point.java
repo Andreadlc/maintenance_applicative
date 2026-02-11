@@ -19,14 +19,19 @@ public class Point extends Shape {
   // Fields
   //
 
-  private int pos_x;
-  private int pos_y;
+  private int x;
+  private int y;
   
   //
   // Constructors
   //
-  public Point () { };
-  
+  public Point(int x, int y) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.POINT);
+    this.x = x;
+    this.y = y;
+  }
+
+
   //
   // Methods
   //
@@ -37,52 +42,46 @@ public class Point extends Shape {
   //
 
   /**
-   * Set the value of pos_x
-   * @param newVar the new value of pos_x
+   * Set the value of x
+   * @param newVar the new value of x
    */
-  public void setPos_x (int newVar) {
-    pos_x = newVar;
+  public void setX (int newVar) {
+    x = newVar;
   }
 
   /**
-   * Get the value of pos_x
-   * @return the value of pos_x
+   * Get the value of x
+   * @return the value of x
    */
-  public int getPos_x () {
-    return pos_x;
+  public int getX () {
+    return x;
   }
 
   /**
-   * Set the value of pos_y
-   * @param newVar the new value of pos_y
+   * Set the value of y
+   * @param newVar the new value of y
    */
-  public void setPos_y (int newVar) {
-    pos_y = newVar;
+  public void setY (int newVar) {
+    y = newVar;
   }
 
   /**
-   * Get the value of pos_y
-   * @return the value of pos_y
+   * Get the value of y
+   * @return the value of y
    */
-  public int getPos_y () {
-    return pos_y;
-  }
-
-  public Shape draw() {
-    System.out.println("Drawing point at (" + pos_x + ", " + pos_y + ")");
-    return this;
+  public int getY () {
+    return y;
   }
 
   //
   // Other methods
   //
 
-  /**
-   * @return       String
-   */
-  public String toString(){
-    return "Point [x=" + pos_x + ", y=" + pos_y + "]";
+  @Override
+  public String print() {
+    return "Point(x: " + x + ", y: " + y + ")";
   }
+
 
 
 }
