@@ -1,4 +1,4 @@
-
+package pixel_tracer.src_java;
 
 /**
  * Class Shape
@@ -16,8 +16,10 @@
  * Fournit également un toString() générique.
  */
 
+import pixel_tracer.src_java.ShapeType;
+
 import java.util.*;
-abstract public class Shape {
+abstract public class Shape  {
 
    private int id;
     private ShapeType type;
@@ -34,6 +36,7 @@ abstract public class Shape {
         this.rotation = 0.0f;
         this.fill = false;
     }
+
 
     public abstract String print();
 
