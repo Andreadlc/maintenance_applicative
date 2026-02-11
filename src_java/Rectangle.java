@@ -18,13 +18,19 @@ public class Rectangle extends Shape {
   // Fields
   //
 
-  private int length;
+  private Point p1;
   private int width;
+  private int height;
   
   //
   // Constructors
   //
-  public Rectangle () { };
+  public Rectangle(Point p1, int width, int height) {
+    super(IdCounter.getInstance().getNextId(), ShapeType.RECTANGLE);
+    this.p1 = p1;
+    this.width = width;
+    this.height = height;
+  };
   
   //
   // Methods
@@ -36,19 +42,19 @@ public class Rectangle extends Shape {
   //
 
   /**
-   * Set the value of length
-   * @param newVar the new value of length
+   * Set the value of p1
+   * @param newVar the new value of p1
    */
-  public void setLength (int newVar) {
-    length = newVar;
+  public void setP1 (Point newVar) {
+    p1 = newVar;
   }
 
   /**
-   * Get the value of length
-   * @return the value of length
+   * Get the value of p1
+   * @return the value of p1
    */
-  public int getLength () {
-    return length;
+  public Point getP1 () {
+    return p1;
   }
 
   /**
@@ -67,9 +73,20 @@ public class Rectangle extends Shape {
     return width;
   }
 
-  public Shape draw() {
-    System.out.println("Drawing a rectangle " + length + "x" + width);
-    return this;
+  /**
+   * Set the value of height
+   * @param newVar the new value of height
+   */
+  public void setHeight (int newVar) {
+    height = newVar;
+  }
+
+  /**
+   * Get the value of height
+   * @return the value of height
+   */
+  public int getHeight () {
+    return height;
   }
 
   //
@@ -77,10 +94,11 @@ public class Rectangle extends Shape {
   //
 
   /**
-   * @return       String
+   * @return
    */
-  public String toString(){
-    return "Rectangle [length=" + length + ", width=" + width + "]";
+  public String print()
+  {
+    return "p1 : " + p1.print() + "\nwidth : " + width + "\nheight : " + height;
   }
 
 
