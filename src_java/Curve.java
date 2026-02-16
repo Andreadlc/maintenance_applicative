@@ -43,6 +43,10 @@ public class Curve extends Shape {
   // Accessor methods
   //
 
+    public void draw(Area area) {
+        area.drawCurve(p1, p2, p3, p4);
+    }
+
   /**
    * Set the value of p1
    * @param newVar the new value of p1

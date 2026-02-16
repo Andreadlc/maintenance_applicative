@@ -41,6 +41,9 @@ public class Point extends Shape {
   //
   // Accessor methods
   //
+  public void draw(Area area) {
+      area.drawPoint(this);
+  }
 
   /**
    * Set the value of x

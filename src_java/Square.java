@@ -45,6 +45,9 @@ public class Square extends Shape {
   //
   // Accessor methods
   //
+  public void draw(Area area) {
+      area.drawSquare(p1, length);
+  }
 
   /**
    * Set the value of p1

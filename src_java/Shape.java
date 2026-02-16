@@ -37,6 +37,8 @@ abstract public class Shape  {
         this.fill = false;
     }
 
+    public abstract void draw(Area area);
+
 
     public abstract String print();
 

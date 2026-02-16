@@ -55,6 +55,10 @@ public class Polygon extends Shape {
     // Accessor methods
     //
 
+    public void draw(Area area) {
+        area.drawPolygon(points);
+    }
+
     /**
      * Set the value of n
      * @param newVar the new value of n

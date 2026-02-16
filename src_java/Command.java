@@ -95,7 +95,7 @@ public class Command {
         System.out.println("\tpolygon x1 y1 x2 y2 ... : draw polygon with vertices (x1, y1), (x2, y2), ...");
         System.out.println("\tcurve x1 y1 x2 y2 x3 y3 x4 y4 : draw Bezier curve with the given control points");
         System.out.println("\t==== Draw manager ====");
-        System.out.println("\tlist {layers, areas, shapes}");
+        System.out.println("\tlist {layers, areas, shapes} example :  list layers");
         System.out.println("\tselect {area, layer} {id}");
         System.out.println("\tdelete {area, layer, shape} {id}");
         System.out.println("\tnew {area, layer}");
@@ -329,6 +329,8 @@ public class Command {
                             break;
                         case "layer":
                             app.currentArea.getLstLayers().removeIf(l -> l.getId() == id);
+                            app.currentArea.clearArea();
+                            app.currentArea.draw();
                             System.out.println("Deleted Layer ID: " + id);
                             break;
                         case "shape":

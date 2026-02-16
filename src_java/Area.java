@@ -36,6 +36,17 @@ public class Area {
     }
 
     public void draw() {
+        clearArea();
+
+        for (Layer layer : layers) {
+            if (!layer.isVisible()) continue;
+
+            for (Shape shape : layer.getShapes()) {
+                shape.draw(this);
+            }
+        }
+
+        // affichage
         for (int i = 0; i < height; i++) {
             for (int j = 0; j < width; j++) {
                 System.out.print(area[i][j]);
@@ -142,6 +153,15 @@ public class Area {
                     3 * (1 - t) * Math.pow(t, 2) * p3.getY() +
                     Math.pow(t, 3) * p4.getY());
             drawCirclePixel(x, y); // Use existing method to plot the pixel
+        }
+    }
+
+    public void drawPoint(Point p) {
+        int x = p.getX();
+        int y = p.getY();
+
+        if (x >= 0 && x < width && y >= 0 && y < height) {
+            area[y][x] = fullChar;
         }
     }
 

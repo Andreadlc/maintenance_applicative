@@ -83,4 +83,8 @@ public class Circle extends Shape {
         return radius;
     }
 
+    public void draw(Area area) {
+        area.drawCircle(center, radius);
+    }
+
 }

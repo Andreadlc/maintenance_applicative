@@ -40,6 +40,10 @@ public class Line extends Shape {
   // Accessor methods
   //
 
+    public void draw(Area area) {
+        area.drawLine(p1, p2);
+    }
+
   /**
    * Set the value of p1
    * @param newVar the new value of p1
