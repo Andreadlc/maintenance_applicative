@@ -371,69 +371,75 @@ public class Command {
                 break;
 
             case "set":
-                if (this.strParams.size() == 3 && this.intParams.size() == 1) { // Ensure correct parameter counts
-                    String target = this.strParams.get(2);
-                    int asciiCode = this.intParams.get(0); // Access the ASCII code from intParams
+                if (this.strParams.size() == 3 && this.intParams.size() == 1) {
+                    String setType = this.strParams.get(1);
 
-                    // Validate ASCII code for printable characters (32 to 126)
-                    if (asciiCode < 32 || asciiCode > 126) {
-                        ErrorMessage.INVALID_PARAMETERS.printMessage();
-                        System.out.println("ASCII code must be between 32 and 126 for printable characters.");
-                        shouldDrawCanvas = false;
-                        break;
-                    }
+                    if (setType.equals("char")) {
+                        String target = this.strParams.get(2);
+                        int asciiCode = this.intParams.get(0);
 
-                    char newChar = (char) asciiCode; // Convert ASCII code to character
-                    switch (target) {
-                        case "background":
-                            area.setEmptyChar(newChar);
-                            System.out.println("Background character set to: " + newChar);
+                        // Validate ASCII code for printable characters (32 to 126)
+                        if (asciiCode < 32 || asciiCode > 126) {
+                            ErrorMessage.INVALID_PARAMETERS.printMessage();
+                            System.out.println("ASCII code must be between 32 and 126 for printable characters.");
+                            shouldDrawCanvas = false;
                             break;
-                        case "border":
-                            area.setFullChar(newChar);
-                            System.out.println("Border character set to: " + newChar);
-                            break;
+                        }
 
-                        case "layer": //
-                            String visibility = strParams.get(1); // "visible" / "invisible"
-                            int layerId;
-                            try {
-                                layerId = Integer.parseInt(strParams.get(2));
-                            } catch (NumberFormatException e) {
+                        char newChar = (char) asciiCode;
+                        switch (target) {
+                            case "background":
+                                area.setEmptyChar(newChar);
+                                System.out.println("Background character set to: " + newChar);
+                                break;
+                            case "border":
+                                area.setFullChar(newChar);
+                                System.out.println("Border character set to: " + newChar);
+                                break;
+                            default:
                                 ErrorMessage.INVALID_PARAMETERS.printMessage();
+                                System.out.println("Expected format: set char {background, border} {ascii_code}");
                                 shouldDrawCanvas = false;
                                 break;
-                            }
+                        }
+                    } else if (setType.equals("layer")) {
+                        String visibility = this.strParams.get(2);
+                        int layerId = this.intParams.get(0);
 
-                            boolean found = false;
-                            for (Layer l : app.currentArea.getLstLayers()) {
-                                if (l.getId() == layerId) {
-                                    if (visibility.equals("visible")) {
-                                        l.setVisible(true);
-                                        System.out.println("Layer " + layerId + " is now visible");
-                                    } else if (visibility.equals("invisible")) {
-                                        l.setVisible(false);
-                                        System.out.println("Layer " + layerId + " is now invisible");
-                                    } else {
-                                        ErrorMessage.INVALID_PARAMETERS.printMessage();
-                                    }
-                                    found = true;
-                                    break;
+                        boolean found = false;
+                        for (Layer l : app.currentArea.getLstLayers()) {
+                            if (l.getId() == layerId) {
+                                if (visibility.equals("visible")) {
+                                    l.setVisible(true);
+                                    System.out.println("Layer " + layerId + " is now visible");
+                                } else if (visibility.equals("invisible") || visibility.equals("unvisible")) {
+                                    l.setVisible(false);
+                                    System.out.println("Layer " + layerId + " is now invisible");
+                                } else {
+                                    ErrorMessage.INVALID_PARAMETERS.printMessage();
+                                    System.out.println("Expected format: set layer {visible, invisible} {id}");
+                                    shouldDrawCanvas = false;
                                 }
+                                found = true;
+                                break;
                             }
+                        }
 
-                            if (!found) ErrorMessage.UNKNOWN_ID.printMessage();
-                            app.currentArea.draw();
-                            break;
-
-
-                        default:
-                            ErrorMessage.UNKNOWN_COMMAND.printMessage();
+                        if (!found) {
+                            ErrorMessage.UNKNOWN_ID.printMessage();
                             shouldDrawCanvas = false;
+                        }
+                    } else {
+                        ErrorMessage.INVALID_PARAMETERS.printMessage();
+                        System.out.println("Expected format: set char {background, border} {ascii_code}");
+                        System.out.println("Expected format: set layer {visible, invisible} {id}");
+                        shouldDrawCanvas = false;
                     }
                 } else {
                     ErrorMessage.INVALID_PARAMETERS.printMessage();
                     System.out.println("Expected format: set char {background, border} {ascii_code}");
+                    System.out.println("Expected format: set layer {visible, invisible} {id}");
+                    shouldDrawCanvas = false;
                 }
                 break;
 
