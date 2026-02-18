@@ -393,15 +393,50 @@ public class Command {
                             area.setFullChar(newChar);
                             System.out.println("Border character set to: " + newChar);
                             break;
+
+                        case "layer": //
+                            String visibility = strParams.get(1); // "visible" / "invisible"
+                            int layerId;
+                            try {
+                                layerId = Integer.parseInt(strParams.get(2));
+                            } catch (NumberFormatException e) {
+                                ErrorMessage.INVALID_PARAMETERS.printMessage();
+                                shouldDrawCanvas = false;
+                                break;
+                            }
+
+                            boolean found = false;
+                            for (Layer l : app.currentArea.getLstLayers()) {
+                                if (l.getId() == layerId) {
+                                    if (visibility.equals("visible")) {
+                                        l.setVisible(true);
+                                        System.out.println("Layer " + layerId + " is now visible");
+                                    } else if (visibility.equals("invisible")) {
+                                        l.setVisible(false);
+                                        System.out.println("Layer " + layerId + " is now invisible");
+                                    } else {
+                                        ErrorMessage.INVALID_PARAMETERS.printMessage();
+                                    }
+                                    found = true;
+                                    break;
+                                }
+                            }
+
+                            if (!found) ErrorMessage.UNKNOWN_ID.printMessage();
+                            app.currentArea.draw();
+                            break;
+
+
                         default:
                             ErrorMessage.UNKNOWN_COMMAND.printMessage();
+                            shouldDrawCanvas = false;
                     }
                 } else {
                     ErrorMessage.INVALID_PARAMETERS.printMessage();
                     System.out.println("Expected format: set char {background, border} {ascii_code}");
                 }
-                shouldDrawCanvas = false;
                 break;
+
 
             default:
                 System.out.println("Commande inconnue"); // Simplified unknown command handling
