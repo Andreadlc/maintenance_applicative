@@ -96,23 +96,18 @@ Voici les étapes complètes pour créer et afficher une forme :
 ## 1️ Créer une zone de dessin
 
 ```bash
-create_area nom_largeur hauteur
+new area 
 ```
+L'application nous retourne l'id de l'area crée
 
-Exemple :
-
-```bash
-create_area test 40 20
-```
-
-Cela crée une zone de dessin de 40x20 caractères.
+Cela crée une zone de dessin de 40x40 caractères par défaut.
 
 ---
 
-## 2️ Sélectionner la zone
+## 2️ Sélectionner la zone uniquement quand vous créer une nouvelle area 
 
 ```bash
-select_area test
+select area "ID"
 ```
 
 Il faut obligatoirement sélectionner une zone avant de créer un calque.
@@ -122,15 +117,17 @@ Il faut obligatoirement sélectionner une zone avant de créer un calque.
 ## 3️ Créer un calque
 
 ```bash
-create_layer layer1
+new layer
+
 ```
+L'application nous retourne l'id du layer crée
 
 ---
 
 ## 4️ Sélectionner le calque
 
 ```bash
-select_layer layer1
+select layer "ID"
 ```
 
 ---
@@ -140,13 +137,13 @@ select_layer layer1
 ### ➤ Créer une ligne
 
 ```bash
-create_line x1 y1 x2 y2
+line x1 y1 x2 y2
 ```
 
 Exemple :
 
 ```bash
-create_line 1 1 10 10
+line 1 1 10 10
 ```
 
 ---
@@ -154,7 +151,7 @@ create_line 1 1 10 10
 ### ➤ Créer un rectangle
 
 ```bash
-create_rectangle x y largeur hauteur
+rectangle x y largeur hauteur
 ```
 
 Exemple :
@@ -168,13 +165,13 @@ create_rectangle 5 5 10 4
 ### ➤ Créer un cercle
 
 ```bash
-create_cercle x y rayon
+circle x y rayon
 ```
 
 Exemple :
 
 ```bash
-create_cercle 15 10 5
+circle 15 10 5
 ```
 
 ---
@@ -182,7 +179,7 @@ create_cercle 15 10 5
 ## 6 Afficher la scène
 
 ```bash
-display
+plot
 ```
 
 La scène complète est alors affichée dans le terminal.
@@ -192,12 +189,12 @@ La scène complète est alors affichée dans le terminal.
 #  Exemple complet d’utilisation
 
 ```bash
-create_area test 40 20
-select_area test
-create_layer layer1
-select_layer layer1
-create_line 1 1 15 10
-display
+new area
+select area "ID"
+new layer 
+select layer "ID"
+line 1 1 15 10
+plot
 ```
 
 ---
