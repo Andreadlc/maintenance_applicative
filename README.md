@@ -209,12 +209,6 @@ Le rapport final est disponible dans :
 rapport.pdf
 ```
 
-Une version modifiable est également fournie :
-
-```
-rapport.md
-```
-
 ---
 
 ##  Diagrammes UML
@@ -230,7 +224,6 @@ Ce dossier contient :
 - Diagramme de dépendances
 - Diagramme de composants
 - Diagramme de classes
-- Captures d’écran de l’application
 
 ---
 
@@ -262,7 +255,7 @@ dans un navigateur.
 
 #  Outils utilisés
 
-- Langage : C
+- Langage : C,Java
 - Compilation : GCC
 - Documentation : Doxygen
 - Graphviz (génération des graphes)
@@ -284,8 +277,8 @@ Ce projet s’inscrit dans une démarche de maintenance applicative comprenant :
 
 #  Remarques importantes
 
-- Le projet compile avec `make`
+- Le projet compile avec `make` pour le projet en c
 - L’application fonctionne en mode terminal
 - La documentation Doxygen est fonctionnelle
 - Les diagrammes sont fournis dans le dossier `images`
-- Le rapport respecte les exigences du TP1
+- Le rapport respecte les exigences du projet
