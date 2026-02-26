@@ -157,7 +157,7 @@ rectangle x y largeur hauteur
 Exemple :
 
 ```bash
-create_rectangle 5 5 10 4
+rectangle 5 5 10 4
 ```
 
 ---
